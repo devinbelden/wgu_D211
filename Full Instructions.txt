@@ -1,0 +1,16 @@
+Below are the instructions for viewing the Tableau Story in full detail: 
+
+Open the following GitHub repository: https://github.com/devinbelden/wgu_D211
+Download the code by clicking the green "Code" button on the top right corner of the screen, then selecting "Download ZIP". This will download a zip file of the contents of the repository.
+Within the Downloads folder, locate the downloaded zip file and extract its contents to "C:\Users\Public". This will create a separate folder titled "wgu_D211-main". Locate this folder within File Explorer, and double click this folder to open it.
+
+Within pgAdmin4, navigate to the Churn database on the left pane (Servers -> Databases -> Churn)
+Right click on the Churn database and open the Query Tool
+Copy and paste the contents of the included file "Full SQL Code.txt" within the Query Tool. Click the Play button at the top of the Query Tool pane to run the query.
+
+Within the File Explorer window opened previously (at path: C:\Users\Public\wgu_D211-main), double click the "D211 - Devin Belden.twbx" file to open in Tableau. When prompted for a username and password, enter the following:
+Username: postgres
+Password: Passw0rd!
+This will allow the workbook to connect to the Postgres database created/manipulated earlier. 
+
+Within Tableau, click the tab titled "Story 1", located at the bottom, to view all relevant visualizations created for this project. The Story can be viewed in Presentation Mode by clicking the Presentation Mode button at the top center, or by hitting F7 on the keyboard. The Churn filter can be interacted with by clicking one of the colored boxes. 
