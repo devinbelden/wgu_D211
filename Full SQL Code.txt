@@ -17,7 +17,7 @@ res_rate decimal
 
 -- import data --
 COPY states_raw
-FROM 'C:\Users\Public\non_iou_zipcodes_2023.csv'
+FROM 'C:\Users\Public\wgu_D211-main\non_iou_zipcodes_2023.csv'
 DELIMITER ','
 CSV HEADER;
 
