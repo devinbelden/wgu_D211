@@ -1,0 +1,52 @@
+--start sql--
+-- create the table states_raw -- 
+
+drop table if exists states_raw;
+
+create table states_raw
+(zip int,
+eiaid int,
+utility_name varchar,
+state varchar,
+service_type varchar,
+ownership varchar,
+comm_rate decimal,
+ind_rate decimal,
+res_rate decimal
+);
+
+-- import data --
+COPY states_raw
+FROM 'C:\Users\Public\non_iou_zipcodes_2023.csv'
+DELIMITER ','
+CSV HEADER;
+
+-- create cleaned table --
+drop table if exists states cascade;
+
+create table states
+(state varchar,
+comm_rate decimal,
+ind_rate decimal,
+res_rate decimal
+);
+
+-- insert cleaned/relevant data --
+insert into states
+select state, avg(comm_rate), avg(ind_rate), avg(res_rate)
+from states_raw
+where state is not null
+group by 1;
+
+-- add rows into states table --
+insert into states (state)
+values ('PR'), ('DC'), ('WV');
+
+-- create primary/foreign key --
+alter table states
+add primary key (state);
+
+alter table location
+add constraint state
+foreign key (state)
+references states (state);
